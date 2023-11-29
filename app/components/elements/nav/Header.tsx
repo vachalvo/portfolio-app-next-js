@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode, useCallback, useState } from "react";
+import {ReactNode, useCallback, useEffect, useState} from "react";
 import SocialList from "../SocialList";
 import Icons from "@/app/utils/Icons";
 
@@ -31,7 +31,10 @@ export default function Header({ children, links }: IHeader): ReactNode {
     if (window.scrollY > 10) setNavbar(true);
     else setNavbar(false);
   };
-  window.addEventListener("scroll", changeBackground);
+
+  useEffect(() => {
+      window.addEventListener("scroll", changeBackground);
+  }, [])
 
   const getResumeButton = (): ReactNode => {
     return (
