@@ -18,10 +18,6 @@ const Particles = () => {
           fpsLimit: 60,
           interactivity: {
             events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
               onHover: {
                 enable: true,
                 mode: "repulse",
@@ -29,9 +25,6 @@ const Particles = () => {
               resize: true,
             },
             modes: {
-              push: {
-                quantity: 4,
-              },
               repulse: {
                 distance: 150,
                 duration: 0.4,
@@ -58,7 +51,7 @@ const Particles = () => {
                 default: "bounce",
               },
               random: false,
-              speed: 1.5,
+              speed: 0.8,
               straight: false,
             },
             number: {

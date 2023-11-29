@@ -16,7 +16,7 @@ interface IHeader {
 
 const renderLink = ({ key, text }: ILink): ReactNode => (
   <div className="navbar-link">
-    <a href={process.env.PUBLIC_URL + key}>{text}</a>
+    <a href={key}>{text}</a>
   </div>
 );
 
