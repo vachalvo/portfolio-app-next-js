@@ -57,7 +57,7 @@ export default function Input({ id, label, register, placeholder, options, type,
     }, [disabled, id, label, options, placeholder, register, type]);
 
     return (
-        <div className="mb-4 w-full max-w-4xl">
+        <div className="mb-4 w-full">
             <label htmlFor={id} className="label">
                 <span className="label-text">{label}<span className="text-error"> *</span></span>
             </label>

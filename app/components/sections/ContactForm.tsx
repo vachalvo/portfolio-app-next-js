@@ -1,4 +1,4 @@
-import React, {ReactNode, useMemo, useState} from "react";
+import React, {ReactNode, useState} from "react";
 import Input, {IInputDef} from "../core/Input";
 import { useForm } from "react-hook-form";
 import { object, string } from 'yup';
@@ -6,12 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Alerts from "@/app/utils/Alerts";
 import {sendContactForm} from "@/app/utils/api/api";
 
-// DELETE
-function delay(milliseconds: number){
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+const DISABLED = true;
 
 interface FormData {
     name: string
@@ -20,9 +15,9 @@ interface FormData {
 }
 
 let messageSchema = object({
-    name: string().required("Please fill in the following information"),
-    email: string().email("Use your email address").required("Please fill in the following information"),
-    message: string().max(1024, "Message can be only 1024 characters long").required("Please fill in the following information"),
+    name: string().required("This information must be filled."),
+    email: string().email("Email address has invalid format. Please use your email.").required("This information must be filled."),
+    message: string().max(1024, "Message can be only 1024 characters long.").required("This information must be filled."),
 });
 
 const INPUTS: IInputDef[] = [{
@@ -59,34 +54,20 @@ function ContactForm(): ReactNode {
         resolver: yupResolver(messageSchema)
     })
 
-    const successAlert = useMemo(() => {
-        return Alerts.getSuccessAlert("Your message has been sent. Expect a reply in the next few days.", () => setShowSuccessAlert(false))
-    }, []);
-
-    const errorAlert = useMemo(() => {
-        return Alerts.getErrorAlert("Your message could not be sent. Please try again later.", () => setShowErrorAlert(false))
-    }, []);
-
-
     const onSubmit = async (data: FormData) => {
-
         await sendContactForm(data)
-        await delay(2000);
-
-        console.log("DATA", data)
-
+        // TODO - check for errors
         setShowSuccessAlert(true)
     };
 
-    console.log("ERRORS", errors)
-
     return (
-        <div className="flex flex-wrap flex-col items-center justify-center gap-4 text-center">
-            <div className="w-full">
-                {showSuccessAlert && successAlert}
-                {showErrorAlert && errorAlert}
+        <div className="flex flex-wrap flex-col items-center justify-center gap-4 text-center ">
+            <div className="max-w-7xl w-full">
+                {showSuccessAlert && Alerts.getSuccessAlert("Your message has been sent. Expect a reply in the next few days.", () => setShowSuccessAlert(false))}
+                {showErrorAlert && Alerts.getErrorAlert("Your message could not be sent. Please try again later.", () => setShowErrorAlert(false))}
+                {DISABLED && Alerts.getErrorAlert("The contact form is temporarily disabled. Please contact me directly under the alternative e-mail address below.")}
 
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center mt-4">
 
                     {INPUTS.map(input => {
                         return <Input
@@ -96,17 +77,17 @@ function ContactForm(): ReactNode {
                             register={register}
                             // @ts-ignore
                             error={errors[input.id] ? errors[input.id].message : undefined}
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || DISABLED}
                         />
                     })}
 
-                    <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+                    <button className="btn btn-primary" type="submit" disabled={isSubmitting || DISABLED}>
                         {isSubmitting ?   <span className="loading loading-spinner text-primary"></span>
                         : "Send"}
                     </button>
                 </form>
+                <div className="divider text-2xl mt-8">OR</div>
             </div>
-            <div className="divider">OR</div>
             <p>
                 Find me at the email address{" "}
                 <a
