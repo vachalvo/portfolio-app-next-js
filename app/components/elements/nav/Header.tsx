@@ -90,7 +90,7 @@ export default function Header({ children, links }: IHeader): ReactNode {
                 <div key={index}>
                   <li className="w-full">
                     <a
-                      href={process.env.PUBLIC_URL + key}
+                      href={key}
                       onClick={closeDrawer}
                       className="font-medium text-lg w-full"
                     >
