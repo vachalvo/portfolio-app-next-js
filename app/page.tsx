@@ -26,7 +26,7 @@ const PAGES = [
     {
         component: Projects,
         title: "Projects",
-        subtitle: "See project that I created or be part of",
+        subtitle: "See projects that I created or be part of",
         id: "projects",
     },
     {
