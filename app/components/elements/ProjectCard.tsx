@@ -27,7 +27,7 @@ export const ProjectCard = ({
         <img
           alt={"Project " + title}
           className="inset-0 h-full w-full object-cover object-center"
-          src={"/assets/projects/" + image}
+          src={"/assets/" + image}
         />
       </div>
     ),
