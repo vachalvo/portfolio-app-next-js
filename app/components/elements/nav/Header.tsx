@@ -24,7 +24,7 @@ export default function Header({ children, links }: IHeader): ReactNode {
   const [navbar, setNavbar] = useState(false);
 
   const closeDrawer = useCallback(() => {
-    document.getElementById("my-drawer-3")?.click();
+    document.getElementById("drawerId")?.click();
   }, []);
 
   const changeBackground = (): void => {
@@ -33,7 +33,11 @@ export default function Header({ children, links }: IHeader): ReactNode {
   };
 
   useEffect(() => {
+      if (window.scrollY > 20) setNavbar(true);
+
       window.addEventListener("scroll", changeBackground);
+
+      return () => window.removeEventListener("scroll", changeBackground);
   }, [])
 
   const getResumeButton = (): ReactNode => {
@@ -57,7 +61,7 @@ export default function Header({ children, links }: IHeader): ReactNode {
       >
         <div className="flex-none md:hidden">
           <label
-            htmlFor="my-drawer-3"
+            htmlFor="drawerId"
             aria-label="open sidebar"
             className="btn btn-square btn-ghost"
           >
@@ -78,7 +82,7 @@ export default function Header({ children, links }: IHeader): ReactNode {
     return (
       <>
         <label
-          htmlFor="my-drawer-3"
+          htmlFor="drawerId"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
@@ -110,7 +114,7 @@ export default function Header({ children, links }: IHeader): ReactNode {
 
   return (
     <div className="drawer">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <input id="drawerId" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {getNavbar()}
         {children}

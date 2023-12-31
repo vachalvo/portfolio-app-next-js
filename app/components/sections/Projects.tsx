@@ -8,7 +8,7 @@ const PROJECTS: IProject[] = [
             "Portfolio website created to present my skills, projects, work achievements and knowledge.",
         image: "portfolio.png",
         codeUrl: "https://github.com/vachalvo/vachalvo.github.io/",
-        previewUrl: "https://vachalvo.github.io/",
+        previewUrl: "https://vojtech-vachal.vercel.app/",
         technologies: ["React", "TypeScript", "TailwindCSS", "Framer Motion"],
     },
     {
