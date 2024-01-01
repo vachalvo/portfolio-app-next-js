@@ -61,7 +61,7 @@ function ContactForm(): ReactNode {
     };
 
     return (
-        <div className="flex flex-wrap flex-col items-center justify-center gap-4 text-center ">
+        <div className="flex flex-wrap flex-col items-center justify-center gap-4 text-center max-w-[1000px] m-auto">
             <div className="max-w-7xl w-full">
                 {showSuccessAlert && Alerts.getSuccessAlert("Your message has been sent. Expect a reply in the next few days.", () => setShowSuccessAlert(false))}
                 {showErrorAlert && Alerts.getErrorAlert("Your message could not be sent. Please try again later.", () => setShowErrorAlert(false))}

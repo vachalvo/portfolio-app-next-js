@@ -70,23 +70,38 @@ const WORK: IEvent[] = [
 ];
 const TABS = ["Education", "Work"];
 
+function calculateAge(): number {
+    const currentDate = new Date();
+    const birthday = new Date('1998-06-11');
+
+    const birthYear = birthday.getFullYear();
+    const currentYear = currentDate.getFullYear();
+
+    let age = currentYear - birthYear;
+
+    if (currentDate < new Date(currentYear, birthday.getMonth(), birthday.getDate()))
+        age--;
+
+    return age;
+}
+
 function About(): ReactNode {
     const [activeTab, setActiveTab] = useState<string>(TABS[0]);
 
     const items = activeTab === "Education" ? EDUCATION : WORK;
+    const myAge = calculateAge();
 
     return (
         <div className="flex flex-col items-center gap-6">
-            <div className="lg:mx-64">
+            <div className="lg:max-w-[1000px]">
                 <p className="mt-4">
-                    I am Vojtěch Váchal, a 25-year-old software developer from Pilsen,
-                    {/* eslint-disable-next-line react/no-unescaped-entities */}
+                    I am Vojtěch Váchal, a {myAge}-years-old software developer from Pilsen,
                     Czech Republic. I hold both bachelor's and master's degrees in
-                    informatics and software engineering from the West Bohemian
+                    Informatics and Software Engineering claimed at the West Bohemian
                     University.
                 </p>
                 <p className="mt-4">
-                    My journey into development was inspired by a childhood fascination
+                    My journey into computer science was inspired by a childhood fascination
                     with PCs and games, which ultimately led me to become proficient in a
                     variety of programming languages and technologies, including
                     JavaScript, React, Java, CSS, HTML, and C#. I have been working in the

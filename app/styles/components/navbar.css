@@ -5,10 +5,6 @@
         @apply font-medium hover:font-bold hover:text-xl hover:text-primary transition-all duration-300 inline-block relative;
     }
 
-    .navbar-logo {
-        @apply font-medium hover:font-bold hover:text-xl hover:text-primary transition-all duration-300 inline-block relative;
-    }
-
     .navbar-link::after {
         @apply bg-primary w-full absolute h-[1px] bottom-0 left-0;
         content: '';
@@ -27,11 +23,11 @@
     @apply bg-primary text-gray-900 navbar py-0 flex justify-between md:justify-around fixed top-0 z-10 transition-all duration-500;
 
     .navbar-link {
-        @apply font-medium hover:text-gray-900;
+        @apply font-medium hover:font-bold hover:text-xl hover:text-gray-900 transition-all duration-300 inline-block relative;
     }
 
     .navbar-link::after {
-        @apply text-gray-900 bg-gray-900 w-full absolute h-[2px] bottom-0 left-0;
+        @apply text-gray-900 bg-gray-900 w-full absolute h-[1px] bottom-0 left-0;
         content: '';
         transform: scaleX(0);
         transform-origin: bottom right;
