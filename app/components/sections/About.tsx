@@ -95,7 +95,8 @@ function About(): ReactNode {
         <div className="flex flex-col items-center gap-6">
             <div className="lg:max-w-[1000px]">
                 <p className="mt-4">
-                    I am Vojtěch Váchal, a {myAge}-years-old software developer from Pilsen, Czech Republic. I hold both bachelor's and master's degrees in Informatics and Software Engineering claimed at the West Bohemian University.
+                    I am Vojtěch Váchal, a {myAge}-years-old software developer from Pilsen,
+                    Czech Republic. I hold both bachelor&apos;s and master&apos;s degrees in Informatics and Software Engineering claimed at the West Bohemian University.
                 </p>
                 <p className="mt-4">
                     My journey into computer science was inspired by a childhood fascination with PCs and games, which ultimately led me to become proficient in a variety of programming languages and technologies, including JavaScript, React, Java, CSS, HTML, and C#. I have been working in the field for three years and recently started a full-time position. I values the serene environment of Pilsen and enjoy outdoor activities such as climbing and sports in my free time.
