@@ -9,7 +9,7 @@ export async function POST(req: NextRequest){
     // Check if everything is filled
     if (!(body.name && body.email && body.message && body.recaptchaToken))
         return NextResponse.json({ message: "Body is invalid." }, { status: 400 });
-    console.log(process.env.RECAPTCHA_SECRET_KEY)
+
     try {
         const recaptchaVerificationResponse = await axios.post(
             `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${body.recaptchaToken}`
