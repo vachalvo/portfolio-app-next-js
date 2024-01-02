@@ -100,7 +100,7 @@ function ContactForm(): ReactNode {
                     <div className="flex flex-col space-between gap-4">
                         <ReCAPTCHA
                             size="normal"
-                            sitekey="6LfQJEEpAAAAAOie14vyPt4Rxlh0wWFS9HpiHtCn"
+                            sitekey="6LfInUMpAAAAANLv_W6sm0dc_pNgAPYLKPWDCjdW"
                             ref={recaptcha}
                         />
                         <button className="btn btn-primary" type="submit" disabled={isSubmitting || DISABLED}>
