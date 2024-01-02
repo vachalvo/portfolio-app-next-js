@@ -1,12 +1,13 @@
-import React, {ReactNode, useState} from "react";
+import React, {ReactNode, RefObject, useMemo, useRef, useState} from "react";
 import Input, {IInputDef} from "../core/Input";
 import { useForm } from "react-hook-form";
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Alerts from "@/app/utils/Alerts";
 import {sendContactForm} from "@/app/utils/api/api";
+import ReCAPTCHA from "react-google-recaptcha";
 
-const DISABLED = true;
+const DISABLED = false;
 
 interface FormData {
     name: string
@@ -43,32 +44,47 @@ const INPUTS: IInputDef[] = [{
     }]
 
 function ContactForm(): ReactNode {
-    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-    const [showErrorAlert, setShowErrorAlert] = useState(false);
+    const [submitResponse, setSubmitResponse] = useState<{success?: string, error?: string} | null>(null)
+
+    const recaptcha: RefObject<ReCAPTCHA> = useRef(null);
 
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting }
     } = useForm<FormData>({
-        resolver: yupResolver(messageSchema)
+        resolver: yupResolver(messageSchema),
+        mode: 'all',  // Validation is initially triggered on the first blur event. After that, it is triggered on every change event.
     })
 
     const onSubmit = async (data: FormData) => {
-        await sendContactForm(data)
-        // TODO - check for errors
-        setShowSuccessAlert(true)
+        const recaptchaToken = recaptcha.current?.getValue();
+
+        const res = await sendContactForm({...data, recaptchaToken})
+
+        setSubmitResponse(res)
+        recaptcha?.current?.reset();    // Reset ReCaptcha after submission
     };
+
+    const AlertComponent = useMemo(() => {
+        if(DISABLED)
+            return Alerts.getErrorAlert("The contact form is temporarily disabled. Please contact me directly under the alternative e-mail address below.");
+
+        if(submitResponse == null) return;
+
+        if(submitResponse.success)
+            return Alerts.getSuccessAlert("Your message has been sent. Expect a reply in the next few days.", () => setSubmitResponse(null));
+
+        if(submitResponse.error)
+            return Alerts.getErrorAlert("Your message could not be sent. Please try again later.", () => setSubmitResponse(null))
+    }, [submitResponse])
 
     return (
         <div className="flex flex-wrap flex-col items-center justify-center gap-4 text-center max-w-[1000px] m-auto">
             <div className="max-w-7xl w-full">
-                {showSuccessAlert && Alerts.getSuccessAlert("Your message has been sent. Expect a reply in the next few days.", () => setShowSuccessAlert(false))}
-                {showErrorAlert && Alerts.getErrorAlert("Your message could not be sent. Please try again later.", () => setShowErrorAlert(false))}
-                {DISABLED && Alerts.getErrorAlert("The contact form is temporarily disabled. Please contact me directly under the alternative e-mail address below.")}
+                {AlertComponent}
 
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center mt-4">
-
                     {INPUTS.map(input => {
                         return <Input
                             key={input.id}
@@ -81,10 +97,19 @@ function ContactForm(): ReactNode {
                         />
                     })}
 
-                    <button className="btn btn-primary" type="submit" disabled={isSubmitting || DISABLED}>
-                        {isSubmitting ?   <span className="loading loading-spinner text-primary"></span>
-                        : "Send"}
-                    </button>
+                    <div className="flex flex-col space-between gap-4">
+                        <ReCAPTCHA
+                            size="normal"
+                            sitekey="6LfQJEEpAAAAAOie14vyPt4Rxlh0wWFS9HpiHtCn"
+                            ref={recaptcha}
+                        />
+                        <button className="btn btn-primary" type="submit" disabled={isSubmitting || DISABLED}>
+                            {isSubmitting
+                                ? <span className="loading loading-spinner text-primary"></span>
+                                : "Send"
+                            }
+                        </button>
+                    </div>
                 </form>
                 <div className="divider text-2xl mt-8">OR</div>
             </div>

@@ -1,15 +1,21 @@
 export const sendContactForm = async (data: any) => {
     const apiEndpoint = '/api/contact';
 
-    fetch(apiEndpoint, {
-        method: 'POST',
-        body: JSON.stringify(data),
-    })
-        .then((res) => res.json())
-        .then((response) => {
-            alert(response.message);
-        })
-        .catch((err) => {
-            alert(err);
+    try {
+        const response = await fetch(apiEndpoint, {
+            method: 'POST',
+            body: JSON.stringify(data),
         });
+
+        const responseData = await response.json();
+
+        if (!response.ok)
+            throw new Error(responseData.message);
+
+        return { success: responseData.message };
+    } catch (error) {
+        console.error(error);
+        // @ts-ignore
+        return { error: error.message };
+    }
 }
