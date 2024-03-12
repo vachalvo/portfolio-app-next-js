@@ -3,6 +3,14 @@ import { IProject, ProjectCard } from "../elements/ProjectCard";
 
 const PROJECTS: IProject[] = [
     {
+        title: "Aimtec Hackaton 2024",
+        description:
+            "In 2024 I was part of the Aimtec Hackaton 2024 with on disadvantaged people. Our team created a prototype of a mobile application that serves to locate the blind in a small space and we finished on the second place.",
+        image: "hackit.png",
+        codeUrl: "https://github.com/vachalvo/blind_tooth/",
+        technologies: ["React Native", "TypeScript", "Expo", "AWS Lambda", "Node.js"],
+    },
+    {
         title: "Portfolio",
         description:
             "Portfolio website created to present my skills, projects, work achievements and knowledge.",
