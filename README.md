@@ -5,13 +5,13 @@
 
 ## Features
 
-:sparkles: Easy and intuitive UI
-:computer: Modern and responsive design
-:book: Detailed information about my skills, education, and work experience
-:email: Contact form for easy communication
-:moon: Dark mode for better user experience
-:dancer: Smooth animations and transitions
-:iphone: Fully responsive on all devices
+- :sparkles: Easy and intuitive UI
+- :computer: Modern and responsive design
+- :book: Detailed information about my skills, education, and work experience
+- :email: Contact form for easy communication
+- :moon: Dark mode for better user experience
+- :dancer: Smooth animations and transitions
+- :iphone: Fully responsive on all devices
 
 ## 💻 Tech Stack
 
