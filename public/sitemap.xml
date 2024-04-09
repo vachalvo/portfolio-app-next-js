@@ -1,9 +1,7 @@
-<!-- public/sitemap.xml -->
-<xml version="1.0" encoding="UTF-8">
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        <url>
-            <loc>https://vachal-vojtech.vercel.app</loc>
-            <lastmod>2024-09-04</lastmod>
-        </url>
-    </urlset>
-</xml>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://vachal-vojtech.vercel.app/</loc>
+        <lastmod>2024-04-09</lastmod>
+    </url>
+</urlset>
