@@ -43,7 +43,7 @@ export default function Header({ children, links }: IHeader): ReactNode {
   const getResumeButton = (): ReactNode => {
     return (
       <a
-        href="./cv.pdf"
+        href="./assets/cv.pdf"
         download="Vojtech Vachal - Resume.pdf"
         target="_blank"
       >
