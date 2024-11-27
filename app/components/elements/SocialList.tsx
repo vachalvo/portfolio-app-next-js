@@ -15,11 +15,7 @@ const SOCIALS = [
   {
     href: "https://www.instagram.com/vojtavachal",
     icon: Icons.instagram,
-  },
-  {
-    href: "https://twitter.com/Vachalvo",
-    icon: Icons.twitter,
-  },
+  }
 ];
 
 function SocialList(): ReactNode {

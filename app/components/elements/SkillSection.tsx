@@ -19,7 +19,7 @@ const SkillSection = ({ title, skills, icon, right }: ISkill): ReactNode => {
   );
 
   return (
-    <motion.div whileHover={{ scale: 1.05 }} className={classes}>
+    <div className={classes}>
       <h2 className="text-2xl mb-4 font-bold text-primary flex gap-2 justify-center items-center">
         {icon}
         {title}
@@ -34,7 +34,7 @@ const SkillSection = ({ title, skills, icon, right }: ISkill): ReactNode => {
           <p>{skill}</p>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
