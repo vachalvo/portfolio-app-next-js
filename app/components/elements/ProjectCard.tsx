@@ -54,7 +54,7 @@ export const ProjectCard = ({
         <div className="flex flex-wrap gap-4 mt-6">
           {technologies.map((technology) => (
               // eslint-disable-next-line react/jsx-key
-            <span className="badge badge-lg badge-primary font-semibold">
+            <span key={technology} className="badge badge-lg badge-primary font-semibold">
               {technology}
             </span>
           ))}

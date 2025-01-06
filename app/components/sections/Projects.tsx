@@ -35,7 +35,7 @@ function Projects(): ReactNode {
         <div className="flex flex-wrap justify-center gap-8">
             {PROJECTS.map((project, index) => (
                 // eslint-disable-next-line react/jsx-key
-                <ProjectCard {...project} reverse={index % 2 === 1} />
+                <ProjectCard key={project.title} {...project} reverse={index % 2 === 1} />
             ))}
         </div>
     );

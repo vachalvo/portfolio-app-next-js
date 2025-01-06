@@ -5,10 +5,10 @@ import {RevealDiv} from "@/app/components/core/RevealDiv";
 import Header, {ILink} from "@/app/components/elements/nav/Header";
 import Footer from "@/app/components/elements/nav/Footer";
 import About from "@/app/components/sections/About";
-import Skills from "@/app/components/sections/Skills";
 import Projects from "@/app/components/sections/Projects";
 import ContactForm from "@/app/components/sections/ContactForm";
 import SectionWrapper from "@/app/components/core/SectionWrapper";
+import NewSkills from "@/app/components/sections/NewSkills";
 
 const PAGES = [
     {
@@ -18,7 +18,7 @@ const PAGES = [
         id: "about",
     },
     {
-        component: Skills,
+        component: NewSkills,
         title: "Skills",
         subtitle: "Explore some of my knowledge",
         id: "skills",
@@ -44,7 +44,6 @@ const LINKS: ILink[] = [
     { key: "#projects", text: "Projects" },
     { key: "#contact", text: "Contact" },
 ];
-
 
 export default function Home() {
   return (

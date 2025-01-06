@@ -1,5 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-}
+const withSvgr = require('next-plugin-svgr');
 
-module.exports = nextConfig
+module.exports = withSvgr({
+    webpack(config) {
+        return config;
+    },
+});
