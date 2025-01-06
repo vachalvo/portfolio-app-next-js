@@ -24,7 +24,7 @@ function ExperienceTimeline({ items }: IExperienceTimeline): ReactNode {
     const classes = `experience__data ${isEven ? "text-left" : "text-right"}`;
 
     return (
-      <div className={classes}>
+      <div className={classes} key={item.date + item.position}>
         {isEven && (
           <>
             <div></div>
@@ -53,7 +53,7 @@ function ExperienceTimeline({ items }: IExperienceTimeline): ReactNode {
 
   const renderOnSM = (item: IEvent, index: number): ReactNode => {
     return (
-      <div className="flex gap-8">
+      <div className="flex gap-8" key={item.date + item.position}>
         <div>
           {CIRCLE}
           {LINE}
