@@ -2,6 +2,11 @@ import Icons from "@/app/components/core/Icons";
 
 const SKILLS = [
     {
+        name: "React",
+        purpose: "JavaScript library for building UIs",
+        icon: Icons.React
+    },
+    {
         name: "JavaScript",
         purpose: "Programming language for web development",
         icon: Icons.JavaScript
@@ -21,7 +26,6 @@ const SKILLS = [
         purpose: "Styling and layout for web content",
         icon: Icons.CSS
     },
-
     {
         name: "Tailwind",
         purpose: "Utility-first CSS framework",
@@ -61,11 +65,6 @@ const SKILLS = [
         name: ".NET",
         purpose: ".NET framework for building applications",
         icon: Icons.Net
-    },
-    {
-        name: "React",
-        purpose: "JavaScript library for building UIs",
-        icon: Icons.React
     }
 ];
 
