@@ -18,7 +18,7 @@ function Hero(): ReactNode {
                     <div className="py-6">
                         <Typed
                             className="text-3xl font-medium"
-                            strings={["Software Developer", "Web Developer", "IT Enthusiast"]}
+                            strings={["Software Developer", "Mobile App Developer", "Web Developer", "IT Enthusiast"]}
                             typeSpeed={60}
                             backSpeed={80}
                             loop

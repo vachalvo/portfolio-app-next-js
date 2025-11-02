@@ -10,7 +10,7 @@ export type SkillWidget = {
 const SkillWidget = ({ name, purpose, icon }: SkillWidget): ReactNode => {
     return (
         <div className="border-2 border-slate-500 h-full rounded-lg bg-slate-700 hover:bg-slate-600 p-4 flex items-center gap-4 w-full
-        hover:scale-105 hover:-rotate-6 duration-300">
+        hover:scale-105 hover:-rotate-3 duration-300">
             <div className="group w-fit">
                 <Icon icon={icon}/>
             </div>

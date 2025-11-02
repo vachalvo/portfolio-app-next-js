@@ -16,6 +16,7 @@ export default function Tabs({ tabs, activeTab, onChange }: ITabs): ReactNode {
         <div className="tabs">
             {tabs.map((tab) => (
                 <button key={tab} className={tabClass(tab)} onClick={() => onChange(tab)}>
+
                     {tab}
                 </button>
             ))}

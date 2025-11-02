@@ -25,7 +25,6 @@ const PROJECTS: IProject[] = [
             "I participated with my team in the Aimtec Hackaton 2023 and finished on the first place. We created software to slow down speech in videos for disabled people. ",
         image: "hackit-2023.png",
         codeUrl: "https://github.com/honzikv/prezivsipokoutnici/",
-        previewUrl: "http://slowflow.kky.zcu.cz/",
         technologies: ["React", "Python", "MUI"],
     },
 ];

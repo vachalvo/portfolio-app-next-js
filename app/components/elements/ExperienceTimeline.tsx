@@ -36,9 +36,9 @@ function ExperienceTimeline({ items }: IExperienceTimeline): ReactNode {
         )}
 
         <div>
-          <h3 className="text-xl font-bold">{item.position}</h3>
-          <p className="inline-block text-sm font-medium mb-2">{item.place}</p>
-          <p>{item.date}</p>
+          <h3 className="text-xl font-semibold">{item.position}</h3>
+          <p className="inline-block text-sm mb-2 text-neutral-400">{item.place}</p>
+          <p className="text-sm">{item.date}</p>
         </div>
 
         {!isEven && (
@@ -58,21 +58,21 @@ function ExperienceTimeline({ items }: IExperienceTimeline): ReactNode {
           {CIRCLE}
           {LINE}
         </div>
-        <div>
-          <h3 className="text-xl font-bold">{item.position}</h3>
-          <p className="inline-block text-sm font-medium mb-2">{item.place}</p>
-          <p className={index !== items.length - 1 ? "mb-4" : ""}>
-            {item.date}
-          </p>
-        </div>
+          <div>
+              <h3 className="text-xl font-semibold">{item.position}</h3>
+              <p className="inline-block text-sm mb-2 text-neutral-400">{item.place}</p>
+              <p className={index !== items.length - 1 ? "mb-4 text-sm" : "text-sm"}>
+                  {item.date}
+              </p>
+          </div>
       </div>
     );
   };
 
-  return (
-    <div className="w-full">
-      <div className="hidden md:block">{items.map(renderOnMD)}</div>
-      <div className="flex flex-col md:hidden">{items.map(renderOnSM)}</div>
+    return (
+        <div className="w-full">
+            <div className="hidden md:block">{items.map(renderOnMD)}</div>
+            <div className="flex flex-col md:hidden">{items.map(renderOnSM)}</div>
     </div>
   );
 }

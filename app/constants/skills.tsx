@@ -2,6 +2,11 @@ import Icons from "@/app/components/core/Icons";
 
 const SKILLS = [
     {
+        name: "React Native",
+        purpose: "Framework for building mobile apps",
+        icon: Icons.React
+    },
+    {
         name: "React",
         purpose: "JavaScript library for building UIs",
         icon: Icons.React
@@ -17,19 +22,9 @@ const SKILLS = [
         icon: Icons.TypeScript
     },
     {
-        name: "HTML",
-        purpose: "Structuring web content",
-        icon: Icons.HTML
-    },
-    {
-        name: "CSS",
-        purpose: "Styling and layout for web content",
-        icon: Icons.CSS
-    },
-    {
-        name: "Tailwind",
-        purpose: "Utility-first CSS framework",
-        icon: Icons.Tailwind
+        name: ".NET",
+        purpose: ".NET framework for building applications",
+        icon: Icons.Net
     },
     {
         name: "C#",
@@ -60,11 +55,6 @@ const SKILLS = [
         name: "MySQL",
         purpose: "Relational database management system",
         icon: Icons.MySQL
-    },
-    {
-        name: ".NET",
-        purpose: ".NET framework for building applications",
-        icon: Icons.Net
     }
 ];
 

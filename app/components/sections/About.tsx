@@ -9,7 +9,6 @@ const EDUCATION: IEvent[] = [
         position: "Information technology",
         date: "Sep 2014 - Aug 2018",
     },
-
     {
         place: "University of West Bohemia - Faculty of Applied Sciences",
         position: "Bachelor's degree - Informatics",
@@ -26,7 +25,8 @@ const EDUCATION: IEvent[] = [
         date: "Sep 2021 - Aug 2023",
     },
 ];
-const WORK: IEvent[] = [
+
+const INTERNSHIP: IEvent[] = [
     {
         place: "ZF Engineering Pilsen - Internship",
         position: "IT-Support",
@@ -42,6 +42,9 @@ const WORK: IEvent[] = [
         position: "IT-Support",
         date: "Mar 2018",
     },
+];
+
+const WORK: IEvent[] = [
     {
         place: "Unicorn - Part-time",
         position: "Java Backend Developer",
@@ -65,10 +68,23 @@ const WORK: IEvent[] = [
     {
         place: "Creditas Digital Factory - Full-time",
         position: "Frontend Developer",
-        date: "Sep 2023 - Present",
+        date: "Sep 2023 - Mar 2024",
+    },
+    {
+        place: "Creditas Digital Factory - Full-time",
+        position: "Mobile Team Lead",
+        date: "Apr 2024 - Present",
     },
 ];
-const TABS = ["Education", "Work"];
+
+const TABS = ["Education", "Work", "Intership"];
+
+function getTabEvents (tab: string): IEvent[] {
+    if (tab === "Education") return EDUCATION;
+    if (tab === "Work") return WORK;
+    if (tab === "Intership") return INTERNSHIP;
+    return [];
+}
 
 function calculateAge(): number {
     const currentDate = new Date();
@@ -88,7 +104,7 @@ function calculateAge(): number {
 function About(): ReactNode {
     const [activeTab, setActiveTab] = useState<string>(TABS[0]);
 
-    const items = activeTab === "Education" ? EDUCATION : WORK;
+    const items = getTabEvents(activeTab);
     const myAge = calculateAge();
 
     return (
