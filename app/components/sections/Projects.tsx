@@ -7,6 +7,7 @@ const PROJECTS: IProject[] = [
         description:
             "A modern, minimalistic journaling application designed for daily reflection. It features streak tracking to help build consistency, mood monitoring, and a clean, distraction-free interface for capturing your thoughts.",
         image: "reflect.png",
+        codeUrl: "https://github.com/vachalvo/reflect/",
         previewUrl: "https://reflect-self.vercel.app",
         technologies: ["Vite", "React", "Chakra UI", "Firebase", "TailwindCSS"],
     },
