@@ -47,6 +47,11 @@ const SKILLS = [
         icon: Icons.Firebase
     },
     {
+        name: "Vercel",
+        purpose: "Frontend Cloud",
+        icon: Icons.Vercel
+    },
+    {
         name: "Mongo",
         purpose: "NoSQL database",
         icon: Icons.Mongo

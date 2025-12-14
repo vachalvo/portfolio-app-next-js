@@ -3,6 +3,14 @@ import { IProject, ProjectCard } from "../elements/ProjectCard";
 
 const PROJECTS: IProject[] = [
     {
+        title: "Reflect",
+        description:
+            "A modern, minimalistic journaling application designed for daily reflection. It features streak tracking to help build consistency, mood monitoring, and a clean, distraction-free interface for capturing your thoughts.",
+        image: "reflect.png",
+        previewUrl: "https://reflect-self.vercel.app",
+        technologies: ["Vite", "React", "Chakra UI", "Firebase", "TailwindCSS"],
+    },
+    {
         title: "Aimtec Hackaton 2024",
         description:
             "In 2024 I was part of the Aimtec Hackaton 2024 with focus on disadvantaged people. Our team created a prototype of a mobile application that serves to locate the blind in a small space and we finished on the second place.",
@@ -17,7 +25,7 @@ const PROJECTS: IProject[] = [
         image: "portfolio.png",
         codeUrl: "https://github.com/vachalvo/portfolio-app-next-js/",
         previewUrl: "https://vachal-vojtech.vercel.app/",
-        technologies: ["React", "TypeScript", "TailwindCSS", "Framer Motion"],
+        technologies: ["React", "TypeScript", "TailwindCSS", "Framer Motion", "Next.js", "Vercel"],
     },
     {
         title: "Aimtec Hackaton 2023",

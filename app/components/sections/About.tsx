@@ -77,9 +77,9 @@ const WORK: IEvent[] = [
     },
 ];
 
-const TABS = ["Education", "Work", "Intership"];
+const TABS = ["Work", "Education", "Intership"];
 
-function getTabEvents (tab: string): IEvent[] {
+function getTabEvents(tab: string): IEvent[] {
     if (tab === "Education") return EDUCATION;
     if (tab === "Work") return WORK;
     if (tab === "Intership") return INTERNSHIP;
@@ -117,7 +117,7 @@ function About(): ReactNode {
                 </p>
                 <p className="mt-4">
                     I hold both bachelor&apos;s and master&apos;s degrees in Informatics and Software Engineering claimed at the <b>West
-                    Bohemian University</b>.
+                        Bohemian University</b>.
                 </p>
             </div>
 

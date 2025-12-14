@@ -1,4 +1,4 @@
-import  { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface ITabs {
     tabs: string[];
@@ -16,7 +16,6 @@ export default function Tabs({ tabs, activeTab, onChange }: ITabs): ReactNode {
         <div className="tabs">
             {tabs.map((tab) => (
                 <button key={tab} className={tabClass(tab)} onClick={() => onChange(tab)}>
-
                     {tab}
                 </button>
             ))}

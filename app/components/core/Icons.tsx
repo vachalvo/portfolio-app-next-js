@@ -11,6 +11,7 @@ import Net from "../../assets/net.svg"
 import React from "../../assets/react.svg"
 import Tailwind from "../../assets/tailwind.svg"
 import TypeScript from "../../assets/typescript.svg"
+import Vercel from "../../assets/vercel.svg"
 
 export const Icons = {
     CSharp,
@@ -25,7 +26,8 @@ export const Icons = {
     Net,
     React,
     Tailwind,
-    TypeScript
+    TypeScript,
+    Vercel
 }
 
 export default Icons
